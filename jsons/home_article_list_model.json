@@ -1,0 +1,18 @@
+{
+  "@meta": {
+    "className": "HomeArticleListModel",
+    "import": [
+      "home_article_model.dart"
+    ],
+    "comments": {},
+    "nullable": true,
+    "ignore": true
+  },
+  "curPage": 1,
+  "datas": "$[]HomeArticleModel",
+  "offset": 0,
+  "over": false,
+  "pageCount": 572,
+  "size": 20,
+  "total": 11426
+}

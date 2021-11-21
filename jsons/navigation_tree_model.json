@@ -1,0 +1,14 @@
+{
+  "@meta": {
+    "className": "NavigationTreeModel",
+    "import": [
+      "home_article_model.dart"
+    ],
+    "comments": {},
+    "nullable": true,
+    "ignore": true
+  },
+  "articles":"$[]HomeArticleModel",
+  "cid":272,
+  "name":"常用网站"
+}

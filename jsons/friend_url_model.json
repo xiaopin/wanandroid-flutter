@@ -1,0 +1,16 @@
+{
+  "@meta": {
+    "className": "FriendUrlModel",
+    "import": [],
+    "comments": {},
+    "nullable": true,
+    "ignore": false
+  },
+  "category":"源码",
+  "icon":"",
+  "id":22,
+  "link":"https://www.androidos.net.cn/sourcecode",
+  "name":"androidos",
+  "order":11,
+  "visible":1
+}

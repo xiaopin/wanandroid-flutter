@@ -1,0 +1,51 @@
+{
+  "@meta": {
+    "className": "HomeArticleModel",
+    "import": [],
+    "comments": {},
+    "nullable": true,
+    "ignore": true
+  },
+  "apkLink":"",
+  "audit":1,
+  "author":"xiaoyang",
+  "canEdit":false,
+  "chapterId":440,
+  "chapterName":"官方",
+  "collect":false,
+  "courseId":13,
+  "desc":"<p>今天意外在崩溃上报平台发现一个异常为UndeclaredThrowableException，看名字就比较好奇，大家可以搜索下，尝试回答：</p>\r\n<ol>\r\n<li>什么时候会抛出此异常？</li>\r\n<li>为什么[1]中重新封装为此异常抛出，这么设计的原因是？</li>\r\n</ol>",
+  "descMd":"",
+  "envelopePic":"",
+  "fresh":false,
+  "host":"",
+  "id":20514,
+  "link":"https://www.wanandroid.com/wenda/show/20514",
+  "niceDate":"1天前",
+  "niceShareDate":"1天前",
+  "origin":"",
+  "prefix":"",
+  "projectLink":"",
+  "publishTime":1637081840000,
+  "realSuperChapterId":439,
+  "selfVisible":0,
+  "shareDate":1637081819000,
+  "shareUser":"",
+  "superChapterId":440,
+  "superChapterName":"问答",
+  "tags":[
+    {
+      "name":"本站发布",
+      "url":"/article/list/0?cid=440"
+    },
+    {
+      "name":"问答",
+      "url":"/wenda"
+    }
+  ],
+  "title":"每日一问 UndeclaredThrowableException 是什么异常？",
+  "type":1,
+  "userId":2,
+  "visible":1,
+  "zan":1
+}

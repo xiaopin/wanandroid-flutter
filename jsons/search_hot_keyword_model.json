@@ -1,0 +1,14 @@
+{
+  "@meta": {
+    "className": "SearchHotKeywordModel",
+    "import": [],
+    "comments": {},
+    "nullable": true,
+    "ignore": false
+  },
+  "id":6,
+  "link":"",
+  "name":"面试",
+  "order":1,
+  "visible":1
+}
