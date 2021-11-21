@@ -62,6 +62,26 @@ class _HomeArticleWidgetState extends State<HomeArticleWidget> {
                 ),
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    "${article.superChapterName ?? ""}·${article.chapterName ?? ""}",
+                    style: const TextStyle(
+                      fontSize: 13.0,
+                      color: greyColor,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                ),
+                const Icon(
+                  Icons.favorite_border,
+                  color: greyColor,
+                ),
+              ],
+            )
           ],
         ),
       ),
