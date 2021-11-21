@@ -38,15 +38,61 @@ class _WeixinOfficialAccountPageState extends State<WeixinOfficialAccountPage>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: themeColor,
-        title: TabBar(
-          isScrollable: true,
-          controller: _tabController,
-          tabs: accounts
-              .map<Tab>((item) => Tab(child: Text(item.name ?? "")))
-              .toList(),
-          indicatorSize: TabBarIndicatorSize.label,
-          indicatorColor: Colors.white,
-          labelColor: Colors.white,
+        title: Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned(
+              right: 0,
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton(
+                  elevation: 0,
+                  value: 0,
+                  isExpanded: false,
+                  isDense: true,
+                  dropdownColor: themeColor,
+                  items: List.generate(
+                    accounts.length,
+                    (index) {
+                      var model = accounts[index];
+                      return DropdownMenuItem(
+                        value: index,
+                        child: Text(
+                          model.name ?? "",
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  onChanged: (value) {
+                    num n = value! as num;
+                    int index = n.toInt();
+                    setState(() => _tabController.animateTo(index));
+                  },
+                  icon: const Icon(
+                    Icons.keyboard_arrow_down,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(right: 40),
+              color: themeColor,
+              child: TabBar(
+                isScrollable: true,
+                controller: _tabController,
+                tabs: accounts
+                    .map<Tab>((item) => Tab(child: Text(item.name ?? "")))
+                    .toList(),
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorColor: Colors.white,
+                labelColor: Colors.white,
+              ),
+            )
+          ],
         ),
       ),
       body: TabBarView(

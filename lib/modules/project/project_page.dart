@@ -36,22 +36,70 @@ class _ProjectPageState extends State<ProjectPage>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: themeColor,
-        title: TabBar(
-          isScrollable: true,
-          controller: _tabController,
-          tabs: categories
-              .map<Tab>((item) => Tab(child: Text(item.name ?? "")))
-              .toList(),
-          indicatorSize: TabBarIndicatorSize.label,
-          indicatorColor: Colors.white,
-          labelColor: Colors.white,
+        title: Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned(
+              right: 0,
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton(
+                  elevation: 0,
+                  value: 0,
+                  isExpanded: false,
+                  isDense: true,
+                  dropdownColor: themeColor,
+                  items: List.generate(
+                    categories.length,
+                    (index) {
+                      var model = categories[index];
+                      return DropdownMenuItem(
+                        value: index,
+                        child: Text(
+                          model.name ?? "",
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  onChanged: (value) {
+                    num n = value! as num;
+                    int index = n.toInt();
+                    setState(() => _tabController.animateTo(index));
+                  },
+                  icon: const Icon(
+                    Icons.keyboard_arrow_down,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(right: 40),
+              color: themeColor,
+              child: TabBar(
+                isScrollable: true,
+                controller: _tabController,
+                tabs: List.generate(
+                  categories.length,
+                  (index) => Tab(child: Text(categories[index].name ?? "")),
+                ),
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorColor: Colors.white,
+                labelColor: Colors.white,
+              ),
+            )
+          ],
         ),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: categories
-            .map<Widget>((item) => ProjectArticleWidget(category: item))
-            .toList(),
+        children: List.generate(
+          categories.length,
+          (index) => ProjectArticleWidget(category: categories[index]),
+        ),
       ),
       backgroundColor: backgroundColor,
     );
