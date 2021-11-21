@@ -65,11 +65,22 @@ class _HomeArticleWidgetState extends State<HomeArticleWidget> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                if (article.type?.toInt() == 1)
+                  Container(
+                    margin: const EdgeInsets.only(right: 10.0),
+                    child: const Text(
+                      '置顶',
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        color: themeColor,
+                      ),
+                    ),
+                  ),
                 Expanded(
                   child: Text(
                     "${article.superChapterName ?? ""}·${article.chapterName ?? ""}",
                     style: const TextStyle(
-                      fontSize: 13.0,
+                      fontSize: 12.0,
                       color: greyColor,
                     ),
                     overflow: TextOverflow.ellipsis,
