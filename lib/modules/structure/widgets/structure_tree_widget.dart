@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:wanandroid_flutter/api/api.dart';
 import 'package:wanandroid_flutter/models/index.dart';
+import 'package:wanandroid_flutter/modules/structure/structure_articles_page.dart';
 import 'package:wanandroid_flutter/utils/constants.dart';
 
 /// 体系列表数据展示
@@ -31,6 +32,7 @@ class _StructureTreeWidgetState extends State<StructureTreeWidget>
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
         StructureTreeModel model = trees[index];
+        List<StructureTreeModel> childrenModels = model.children ?? [];
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -46,18 +48,34 @@ class _StructureTreeWidgetState extends State<StructureTreeWidget>
             ),
             Wrap(
               spacing: 10.0,
-              children: (model.children ?? []).map<Widget>((item) {
-                return ActionChip(
-                  backgroundColor: backgroundColor,
-                  label: Text(item.name ?? ""),
-                  onPressed: () {},
-                );
-              }).toList(),
+              children: buildActionChip(model),
             ),
           ],
         );
       },
       itemCount: trees.length,
+    );
+  }
+
+  List<Widget> buildActionChip(StructureTreeModel model) {
+    List<StructureTreeModel> childrenModels = model.children ?? [];
+    return List.generate(
+      childrenModels.length,
+      (index) {
+        return ActionChip(
+          backgroundColor: backgroundColor,
+          label: Text(childrenModels[index].name ?? ""),
+          onPressed: () {
+            var route = MaterialPageRoute(
+              builder: (context) => StructureArticlesPage(
+                model: model,
+                initialIndex: index,
+              ),
+            );
+            Navigator.push(context, route);
+          },
+        );
+      },
     );
   }
 

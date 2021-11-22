@@ -78,6 +78,17 @@ class Api {
     });
   }
 
+  /// 获取置顶公众号的文章列表
+  static Future<HomeArticleListModel> getStructureArticles(
+      int id, int pageIndex, int pageSize) {
+    return Http.get("/article/list/0/json?cid=$id&page_size=$pageSize")
+        .then((value) {
+      Map map = value.data;
+      var model = HomeArticleListModel.fromJson(map["data"]);
+      return model;
+    });
+  }
+
   /// 获取导航数据
   static Future<List<NavigationTreeModel>> getNavigationTrees() {
     return Http.get("/navi/json").then((value) {
