@@ -158,4 +158,24 @@ class Api {
       return model;
     });
   }
+
+  /// 登录
+  static Future login(String username, String password) {
+    return Http.post(
+      "/user/login",
+      queryParameters: {
+        "username": username,
+        "password": password,
+      },
+    );
+  }
+
+  /// 收藏文章列表
+  static Future getCollectArticles(int pageIndex, int pageSize) {
+    return Http.get("/lg/collect/list/$pageIndex/json?page_size=$pageSize")
+        .then((value) {
+      print('收藏数据: $value');
+      return value;
+    });
+  }
 }

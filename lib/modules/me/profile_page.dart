@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wanandroid_flutter/modules/login_page.dart';
 import 'package:wanandroid_flutter/utils/constants.dart';
 import 'package:wanandroid_flutter/widgets/bottom_clipper.dart';
 
@@ -33,21 +34,31 @@ class _ProfilePageState extends State<ProfilePage>
               color: themeColor,
               width: double.infinity,
               height: 200,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.person,
-                    size: 60,
-                    color: Color.fromARGB(255, 53, 53, 53),
-                  ),
-                  Text(
-                    "请登录",
-                    style: TextStyle(
+              child: GestureDetector(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.person,
+                      size: 60,
                       color: Color.fromARGB(255, 53, 53, 53),
                     ),
-                  ),
-                ],
+                    Text(
+                      "请登录",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 53, 53, 53),
+                      ),
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPage(),
+                    ),
+                  );
+                },
               ),
             ),
           ),
